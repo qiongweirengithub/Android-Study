@@ -83,7 +83,17 @@ android librories:
     5. 视图系统，可扩展的试图集合，用于创建
        
        
-       
+android 组件
+  应用程序的基本构建块，组件是有应用清单文件松耦合组织的，AndroidManifest.xml --> 组件和交互
+  四个主要组件：
+      Activities: UI 描述，处理用户于屏幕的交互
+      Service   : 与应用程序关联的后台操作
+      Brocast Receives: 操作系统与应用之间的通信。
+      Content Providers:  处理数据和数据库方面的东西。
+      
+      
+      
+      
        
        
 
