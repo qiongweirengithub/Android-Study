@@ -93,9 +93,61 @@ android 组件
       
       
       
+android  activity:  
+        活动代表了一个具有用户界面的单一屏幕，如 Java 的窗口或者帧。Android 的活动是 ContextThemeWrapper 类的子类
+        onCreate()	这是第一个回调，在活动第一次创建是调用
+        onStart()	这个回调在活动为用户可见时被调用
+        onResume()	这个回调在应用程序与用户开始可交互的时候调用
+        onPause()	被暂停的活动无法接受用户输入，不能执行任何代码。当当前活动将要被暂停，上一个活动将要被恢复是调用
+        onStop()	当活动不在可见时调用
+        onDestroy()	当活动被系统销毁之前调用
+        onRestart()	当活动被停止以后重新打开时调用
+        
+android  service:
+    组件状态：
+       Started:	Android的应用程序组件，如活动，通过startService()启动了服务，则服务是Started状态。
+                  一旦启动，服务可以在后台无限期运行，即使启动它的组件已经被销毁。
+       Bound:	当Android的应用程序 组件 通过  bindService()绑定了服务，则服务是Bound状态。
+                Bound状态的服务提供了一个客户服务器接口来允许组件与服务进行交互，如发送请求，获取结果，甚至通过IPC来进行跨进程通信。
+
+    组件接口：
+      onStartCommand()	其他组件(如活动)通过调用 startService() 来请求启动服务时，系统调用该方法。如果你实现该方法，你有责任在工作完成时通过stopSelf()或者stopService()方法来停止服务。
+      onBind	当其他组件想要通过bindService()来绑定服务时，系统调用该方法。如果你实现该方法，你需要返回IBinder对象来提供一个接口，以便客户来与服务通信。你必须实现该方法，如果你不允许绑定，则直接返回null。
+      onUnbind()	当客户中断所有服务发布的特殊接口时，系统调用该方法。
+      onRebind()	当新的客户端与服务连接，且此前它已经通过onUnbind(Intent)通知断开连接时，系统调用该方法。
+      onCreate()	当服务通过onStartCommand()和onBind()被第一次创建的时候，系统调用该方法。该调用要求执行一次性安装。
+      onDestroy()	当服务不再有用或者被销毁时，系统调用该方法。你的服务需要实现该方法来清理任何资源，如线程，已注册的监听器，接收器等。
+    
+    注册服务：
+        <service android:name=".MyService" />               ->           AndroidManifest.xml
+    调用服务中的方法：
+        在activity中：
+          // Method to start the service
+            public void startService(View view) {
+                startService(new Intent(getBaseContext(), MyService.class));
+            }
+          // Method to stop the service
+            public void stopService(View view) {
+                stopService(new Intent(getBaseContext(), MyService.class));
+            }
+            
+            
+android  brodcast:
+      广播接收器需要实现为BroadcastReceiver类的子类，并重写onReceive()方法来接收以Intent对象为参数的消息。
+      注册广播接收机；
+      产生广播意图(intent)；
       
-       
-       
+
+
+//   重点 
+android content provider内容提供者： 
+      内容提供者组件通过请求从一个应用程序向其他的应用程序提供数据。
+      这些请求由类 ContentResolver 的方法来处理。
+      内容提供者可以使用不同的方式来存储数据。
+      数据可以被存放在数据库，文件，甚至是网络
+
+      
+
 
 
 
