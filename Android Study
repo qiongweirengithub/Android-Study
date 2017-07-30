@@ -156,10 +156,13 @@ android content provider内容提供者：
 
 
 
-//   .XML file is for presnt  and  findViewById(R.id.xxx)  is for bounding of object
-http://blog.csdn.net/lmj623565791/article/details/37970961/
-http://blog.csdn.net/lmj623565791/article/details/42628537/
-https://github.com/amap-demo/android-map-fragment/blob/master/app/src/main/java/com/amap/android_map_fragment/FragmentBase.java
+//   .XML file 用来显示  and  findViewById(R.id.xxx)  代表的是 xml 文件中的某一个组件 ！！！！！！！！
+Fragment 管理示例：
+  http://blog.csdn.net/lmj623565791/article/details/37970961/
+  http://blog.csdn.net/lmj623565791/article/details/42628537/
+
+Fragment 应用在 MAP 上：
+  https://github.com/amap-demo/android-map-fragment/blob/master/app/src/main/java/com/amap/android_map_fragment/FragmentBase.java
 
 
 1. Android如何用代码重复加载同一个xml,  
