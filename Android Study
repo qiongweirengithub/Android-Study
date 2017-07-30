@@ -151,3 +151,28 @@ android content provider内容提供者：
 
 
 
+
+
+
+
+
+//   .XML file is for presnt  and  findViewById(R.id.xxx)  is for bounding of object
+http://blog.csdn.net/lmj623565791/article/details/37970961/
+http://blog.csdn.net/lmj623565791/article/details/42628537/
+https://github.com/amap-demo/android-map-fragment/blob/master/app/src/main/java/com/amap/android_map_fragment/FragmentBase.java
+
+
+1. Android如何用代码重复加载同一个xml,  
+    用LayoutInflater多次inflate该xml文件即可。
+    View v1 = LayoutInflater.from(context).inflate(R.layout.XXX, null);
+    View v2 = LayoutInflater.from(context).inflate(R.layout.XXX, null);
+    这里修改v2内容是不会改变v1的  ???  
+    ???-------- change by findViewById  what will happen , point to one.
+     -> textureMapView = (TextureMapView) getView().findViewById(R.id.map);  ->  idetify by getView()
+    
+
+
+
+
+
+
